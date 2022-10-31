@@ -17,7 +17,25 @@ class Application < Sinatra::Base
     message = params[:message]
     return "Thanks #{name}, you sent this message: #{message}"
   end 
-end
+
+  get '/names' do 
+    name = params[:name]
+
+    return "#{name}"
+  end
+  
+  get '/hello?' do 
+    name = params[:name]
+    return "Hello #{name}!"
+  end 
+
+  post '/sort-names' do 
+    names = params[:names]
+    sorted = names.split(',').sort!.join(',')
+    
+    return "#{sorted}"
+  end 
+end 
 #routes 
 
 # GET / -> execute some code
